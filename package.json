@@ -10,6 +10,7 @@
   "description": "",
   "dependencies": {
     "chai": "^6.2.2",
+    "mailosaur": "^9.0.0",
     "mocha": "^11.7.5",
     "selenium-webdriver": "^4.39.0"
   }
