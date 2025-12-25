@@ -6,6 +6,10 @@ var should = require('chai').should(); // ,should() only if we using should for 
 //describe block
 
 describe('visit the application', function () {
+    // because these will be used in multiple it block
+    let driver;
+    let tempEmail;
+
     const MAILOSAUR_API_KEY = 'wIjBAKPFaJ4WU2H1vxtoZpSALsjVnT0f';
     const SERVER_ID = 'dycq7pcr';
     const mailosaur = new MailosaurClient(MAILOSAUR_API_KEY);
@@ -21,20 +25,31 @@ describe('visit the application', function () {
         return otp;
     }
 
-    //it block
-    it(' trying UI automation in single block', async function () {
+    before(async function () {
         // launch browser
-        const driver = await new Builder().forBrowser('chrome').build();
+        driver = await new Builder().forBrowser('chrome').build();
 
         //navigate
         await driver.get('https://authorized-partner.vercel.app/');
         await driver.manage().window().maximize();
 
+        //tempEmail
+        tempEmail = `user${Date.now()}@dycq7pcr.mailosaur.net`;
+
+    })
+
+    //it block
+    //clicking get started button
+    it('finding get started button and clicking', async function () {
+
         //clicking on the get started button for navigating to signup form
         const getStarted = await driver.findElement(By.css('button.primary-btn'));
         await getStarted.click();
+    })
 
-        //click on the checkbox for the agreement
+    //click on the checkbox for the agreement
+    it('waiting for agreement check box and continue', async function () {
+
         //waiting for the checkbox to appear on the DOM for 10 seconds
         const checkbox = await driver.wait(until.elementLocated(By.id('remember')), 10000);
         await checkbox.click();
@@ -42,8 +57,11 @@ describe('visit the application', function () {
         //clicking on continue button
         const continueButton = await driver.findElement(By.css('button.primary-btn'));
         await continueButton.click();
+    })
 
-        //filling the form
+    //filling the form
+    it('filling basic information form', async function () {
+
         const firstName = await driver.wait(until.elementLocated(By.name('firstName')), 10000);
         await firstName.sendKeys('Kshitiz');
 
@@ -53,7 +71,6 @@ describe('visit the application', function () {
         const email = await driver.findElement(By.name('email'));
         //temporary unique email is required for each test
         //so using mailasaur for this
-        const tempEmail = `user${Date.now()}@dycq7pcr.mailosaur.net`;
         await email.sendKeys(tempEmail);
 
         const countryDropDown = await driver.findElement(By.css("select[aria-hidden='true'"));
@@ -76,9 +93,11 @@ describe('visit the application', function () {
         const nextButton = await driver.findElement(By.css('button.primary-btn'));
         await nextButton.click();
 
-        // OTP fillup using Mailosaur
-        // ----------------------
+    })
 
+    // OTP fillup using Mailosaur
+
+    it('getting otp to fill up and verify', async function () {
         const otpInput = await driver.wait(until.elementLocated(By.css('input[data-input-otp="true"]')), 30000);
         const otp = await getOtp(tempEmail);
         console.log("Fetched OTP:", otp);
@@ -87,7 +106,13 @@ describe('visit the application', function () {
         const submitOtp = await driver.findElement(By.css('button.primary-btn'));
         await submitOtp.click();
 
-        //agency form fill up 
+    })
+
+
+    //agency form fill up 
+
+    it('agency form fill up', async function () {
+
 
         //fill name 
         const agencyName = await driver.wait(until.elementLocated(By.name('agency_name')));
@@ -125,8 +150,12 @@ describe('visit the application', function () {
             By.css('button[type="submit"].primary-btn')
         );
         await next.click();
+    })
 
-        //experience form fill up 
+
+    //experience form fill up 
+    it('filling experience form', async function () {
+
         // 1️⃣ Select Years of Experience (dropdown)
         const experienceDropdown = await driver.wait(until.elementLocated(
             By.css('button[role="combobox"]')
@@ -168,8 +197,11 @@ describe('visit the application', function () {
             By.css('button[type="submit"].primary-btn')
         );
         await nextButtonExp.click();
+    })
 
-        // bussiness form fill up 
+    // bussiness form fill up 
+    it('filling business form', async function () {
+
         // 1️⃣ Fill Business Registration Number
         const businessReg = await driver.wait(until.elementLocated(By.name('business_registration_number')));
         await businessReg.sendKeys('BRN123456');
@@ -239,6 +271,9 @@ describe('visit the application', function () {
             By.css('button[type="submit"].primary-btn')
         );
         await submitBtn.click();
+    })
+
+    it('waiting for the profile to appear in screen', async function () {
 
         //asserting profile to appear on screen
         const myProfileHeading = await driver.wait(
@@ -250,8 +285,12 @@ describe('visit the application', function () {
 
         // Optional visibility check
         await driver.wait(until.elementIsVisible(myProfileHeading), 30000);
+    })
 
-        //clicking for the  on the logout button
+
+    //clicking for the  on the logout button
+    it('clicking logout button', async function () {
+
         const logoutBtn = await driver.wait(
             until.elementLocated(
                 By.xpath('//div[normalize-space()="Logout"]')
@@ -260,6 +299,9 @@ describe('visit the application', function () {
         );
         await driver.wait(until.elementIsVisible(logoutBtn), 5000);
         await logoutBtn.click();
+    })
+
+    it('Logout modal to appear', async function () {
 
         //waiting 
         const openDialog = await driver.wait(
@@ -278,9 +320,14 @@ describe('visit the application', function () {
         );
         await confirmLogout.click();
 
+    })
+
+    after(async function () {
         // close browser
         await driver.quit();
-    });
+    })
+
+
 });
 
 
