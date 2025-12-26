@@ -1,0 +1,687 @@
+{
+  "stats": {
+    "suites": 10,
+    "tests": 11,
+    "passes": 4,
+    "pending": 0,
+    "failures": 7,
+    "start": "2025-12-26T15:02:50.789Z",
+    "end": "2025-12-26T15:05:07.706Z",
+    "duration": 136917,
+    "testsRegistered": 11,
+    "passPercent": 36.36363636363637,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7df830f3-1118-43af-abe4-b8af1be117a6",
+      "title": "",
+      "fullFile": "C:\\Users\\kshit\\OneDrive\\Desktop\\Selenium demo\\test\\signup_automation_script.test.js",
+      "file": "\\test\\signup_automation_script.test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f01d85bf-a3a5-4698-8ee6-db046e4c298b",
+          "title": "complete test",
+          "fullFile": "C:\\Users\\kshit\\OneDrive\\Desktop\\Selenium demo\\test\\signup_automation_script.test.js",
+          "file": "\\test\\signup_automation_script.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "6b529263-8ffb-4344-aa08-bcdc58042186",
+              "title": "dashboard  test",
+              "fullFile": "C:\\Users\\kshit\\OneDrive\\Desktop\\Selenium demo\\test\\signup_automation_script.test.js",
+              "file": "\\test\\signup_automation_script.test.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"dashboard  test\"",
+                  "fullTitle": "complete test dashboard  test \"before all\" hook in \"dashboard  test\"",
+                  "timedOut": false,
+                  "duration": 19782,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "this.timeout(20000);\ndriver = await getDriver();\nawait driver.get(baseUrl);\nsignupActions.setDriver(driver);",
+                  "err": {},
+                  "uuid": "93dfce5c-e185-4a52-8a91-36e78cbe4cfe",
+                  "parentUUID": "6b529263-8ffb-4344-aa08-bcdc58042186",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "finding the get started button",
+                  "fullTitle": "complete test dashboard  test finding the get started button",
+                  "timedOut": false,
+                  "duration": 6801,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "//arrange\n        const getStartedButton = await signupActions.getGetStartedButton(); // getting element\n        // asserting before the click\n        expect(await getStartedButton.isDisplayed()).to.be.true;\n        expect(await getStartedButton.getText()).to.equal('Get Started');\n        //action\n        //clicking the button \n        await SignupActions.clickButton(getStartedButton);  //click the element\n        // asserting the navigation to next page\n        const checkBox = await driver.wait(until.elementLocated(By.id('remember')), 60000);\n        expect(await checkBox.isDisplayed()).to.be.true;",
+                  "err": {},
+                  "uuid": "b2624623-de5f-4c88-9768-a4a5c88dd7db",
+                  "parentUUID": "6b529263-8ffb-4344-aa08-bcdc58042186",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "b2624623-de5f-4c88-9768-a4a5c88dd7db"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 6801,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 0
+            },
+            {
+              "uuid": "45cb0358-9c21-4300-881e-d58da362cebb",
+              "title": "Agreement Checkbox click and continue",
+              "fullFile": "C:\\Users\\kshit\\OneDrive\\Desktop\\Selenium demo\\test\\signup_automation_script.test.js",
+              "file": "\\test\\signup_automation_script.test.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"Agreement Checkbox click and continue\"",
+                  "fullTitle": "complete test Agreement Checkbox click and continue \"before all\" hook in \"Agreement Checkbox click and continue\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "this.timeout(60000); \ndriver = await getDriver();\nsignupActions.setDriver(driver);",
+                  "err": {},
+                  "uuid": "4f9e7414-211b-4718-ab93-ab4fd66a1d57",
+                  "parentUUID": "45cb0358-9c21-4300-881e-d58da362cebb",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "find and click the checkbox",
+                  "fullTitle": "complete test Agreement Checkbox click and continue find and click the checkbox",
+                  "timedOut": false,
+                  "duration": 322,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "//arrange\n        const checkBox = await signupActions.getRememberCheckBox(); // getting the checkbox;\n        //chai assertion before click\n        expect(await checkBox.isDisplayed()).to.be.true;\n        //action \n        //clicking checkbox\n        await signupActions.clickButton(checkBox);\n        //asserting if the checkbox is checked\n        const checked = await checkBox.getAttribute('aria-checked');//relocating checkbox checked chha ki vanera\n        expect(checked).to.equal('true');",
+                  "err": {},
+                  "uuid": "bcecec00-109e-4b9a-a9f2-e6ba3bcdef8c",
+                  "parentUUID": "45cb0358-9c21-4300-881e-d58da362cebb",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "find and click continue button",
+                  "fullTitle": "complete test Agreement Checkbox click and continue find and click continue button",
+                  "timedOut": false,
+                  "duration": 1686,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "//arrange \n//continue button lai locate garem\nconst continueButton = await signupActions.getContinueButton();\n//chai assert to see if it has the required text\nexpect(await continueButton.isDisplayed()).to.be.true;\nexpect(await continueButton.getText()).to.equal('Continue');\n//clicking the button\nawait signupActions.clickButton(continueButton);\n//asserting the page navigation \n//firstName ko container chha ki chhaina vanera\nconst firstName = await driver.wait(until.elementLocated(By.name('firstName')), 60000);\nexpect(await firstName.isDisplayed()).to.be.true;",
+                  "err": {},
+                  "uuid": "009111b2-a812-49f4-be72-17615849e648",
+                  "parentUUID": "45cb0358-9c21-4300-881e-d58da362cebb",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "bcecec00-109e-4b9a-a9f2-e6ba3bcdef8c",
+                "009111b2-a812-49f4-be72-17615849e648"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 2008,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 0
+            },
+            {
+              "uuid": "dd71f6ff-526f-4c2c-886f-714d281a2af1",
+              "title": "basicInfo form test",
+              "fullFile": "C:\\Users\\kshit\\OneDrive\\Desktop\\Selenium demo\\test\\signup_automation_script.test.js",
+              "file": "\\test\\signup_automation_script.test.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"basicInfo form test\"",
+                  "fullTitle": "complete test basicInfo form test \"before all\" hook in \"basicInfo form test\"",
+                  "timedOut": false,
+                  "duration": 1,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "this.timeout(20000);\ndriver = await getDriver();\nsignupActions.setDriver(driver);\ndata = signupData.basicDetails;\nphone = generateRandomPhone()",
+                  "err": {},
+                  "uuid": "20511212-7a7c-44fd-adfa-b716bb324758",
+                  "parentUUID": "dd71f6ff-526f-4c2c-886f-714d281a2af1",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should fill form and assert all fields",
+                  "fullTitle": "complete test basicInfo form test should fill form and assert all fields",
+                  "timedOut": false,
+                  "duration": 7080,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "this.timeout(20000);\n        //arrange and action\n        const fields = await signupActions.fillBasicDetails(\n            data.firstName,\n            data.lastName,\n            tempEmail,\n            phone,\n            data.password\n        );\n        //assert click action hunu agadi\n        expect(await fields.firstNameInput.getAttribute('value')).to.equal(data.firstName);\n        expect(await fields.lastNameInput.getAttribute('value')).to.equal(data.lastName);\n        expect(await fields.emailInput.getAttribute('value')).to.equal(tempEmail);\n        expect(await fields.phoneInput.getAttribute('value')).to.equal(phone);\n        expect(await fields.passwordInput.getAttribute('value')).to.equal(data.password);\n        expect(await fields.confirmPasswordInput.getAttribute('value')).to.equal(data.password);\n        // action \n        // click on next\n        const nextButton = await driver.findElement(By.css('button.primary-btn'));\n        expect(await nextButton.isDisplayed()).to.be.true;\n        await nextButton.click();\n        //assert \n        //navigate to otp page\n        const otpInput = await driver.wait(\n            until.elementLocated(By.css('input[data-input-otp=\"true\"]')),\n            10000);\n        await driver.wait(until.elementIsVisible(otpInput), 5000);\n        expect(await otpInput.isDisplayed()).to.be.true;",
+                  "err": {},
+                  "uuid": "c000989d-0621-472c-a29e-70c14d70caeb",
+                  "parentUUID": "dd71f6ff-526f-4c2c-886f-714d281a2af1",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "c000989d-0621-472c-a29e-70c14d70caeb"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 7080,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 0
+            },
+            {
+              "uuid": "5bd9f88b-f279-45fc-85e1-2e89a6290b3a",
+              "title": "OTP checking page",
+              "fullFile": "C:\\Users\\kshit\\OneDrive\\Desktop\\Selenium demo\\test\\signup_automation_script.test.js",
+              "file": "\\test\\signup_automation_script.test.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"OTP checking page\"",
+                  "fullTitle": "complete test OTP checking page \"before all\" hook in \"OTP checking page\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "driver = await getDriver();\nsignupActions.setDriver(driver);",
+                  "err": {},
+                  "uuid": "f308e325-9415-494f-b778-4bf59e69db00",
+                  "parentUUID": "5bd9f88b-f279-45fc-85e1-2e89a6290b3a",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should check the option is valid or not and navigate to next page",
+                  "fullTitle": "complete test OTP checking page should check the option is valid or not and navigate to next page",
+                  "timedOut": true,
+                  "duration": 20228,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "this.timeout(20000);\n        //arrange\n        const otp = await getOtp(tempEmail);\n        console.log(\"Fetched OTP:\", otp);\n        expect(otp).to.match(/^\\d{6}$/);\n        //arrange and action \n        const otpFill = await signupActions.fillOtp(otp);\n         //assert before click\n        expect(await otpFill.otpInput.getAttribute('value')).to.equal(otp);\n        //action \n        //click on verify\n        const submitOtp = await driver.findElement(By.css('button.primary-btn'));\n        await driver.wait(until.elementIsVisible(submitOtp), 5000);\n        await driver.wait(until.elementIsEnabled(submitOtp), 5000);\n        expect(await submitOtp.isDisplayed()).to.be.true;\n        await submitOtp.click();\n        //assert for navigating to agency page\n        const agencyName = await driver.wait(until.elementLocated(By.name('agency_name')), 10000);\n        expect(await agencyName.isDisplayed()).to.be.true;",
+                  "err": {
+                    "message": "Error: Timeout of 20000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (C:\\Users\\kshit\\OneDrive\\Desktop\\Selenium demo\\test\\signup_automation_script.test.js)",
+                    "estack": "Error: Timeout of 20000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (C:\\Users\\kshit\\OneDrive\\Desktop\\Selenium demo\\test\\signup_automation_script.test.js)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)",
+                    "diff": null
+                  },
+                  "uuid": "a29c5251-d658-4852-8b28-12b5aace098c",
+                  "parentUUID": "5bd9f88b-f279-45fc-85e1-2e89a6290b3a",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "a29c5251-d658-4852-8b28-12b5aace098c"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 20228,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 0
+            },
+            {
+              "uuid": "9dcdec88-e4b8-4b25-bb08-6c3ed098d9ba",
+              "title": "Agency form test",
+              "fullFile": "C:\\Users\\kshit\\OneDrive\\Desktop\\Selenium demo\\test\\signup_automation_script.test.js",
+              "file": "\\test\\signup_automation_script.test.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"Agency form test\"",
+                  "fullTitle": "complete test Agency form test \"before all\" hook in \"Agency form test\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "this.timeout(20000);\ndriver = await getDriver();\nsignupActions.setDriver(driver);\ndata = signupData.agencyDetails;",
+                  "err": {},
+                  "uuid": "788ea06b-873b-4c1d-8ca3-06e010557a74",
+                  "parentUUID": "9dcdec88-e4b8-4b25-bb08-6c3ed098d9ba",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should navigate to experience page with information",
+                  "fullTitle": "complete test Agency form test should navigate to experience page with information",
+                  "timedOut": false,
+                  "duration": 10017,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "this.timeout(20000);\n        //arrange and action \n        //pachhi next garnu aghi assert garnu parchhaa \n        const fields = await signupActions.fillAgencyDetails(\n            data.agencyName,\n            data.roleInAgency,\n            data.email,\n            data.website,\n            data.address\n        )\n        const next = await driver.findElement(By.css('button[type=\"submit\"].primary-btn'));\n        await driver.wait(until.elementIsVisible(next), 5000);\n        await driver.wait(until.elementIsEnabled(next), 5000);\n        await next.click();\n    \n        //asserting \n        //navigate hune thau ko element display vayo ki vayena vandaii\n        const experienceDropdown = await driver.wait(until.elementLocated(By.css('button[role=\"combobox\"]')), 20000);\n        expect(await experienceDropdown.isDisplayed()).to.be.true;",
+                  "err": {
+                    "message": "TimeoutError: Waiting for element to be located By(css selector, *[name=\"agency_name\"])\nWait timed out after 10017ms",
+                    "estack": "TimeoutError: Waiting for element to be located By(css selector, *[name=\"agency_name\"])\nWait timed out after 10017ms\n    at C:\\Users\\kshit\\OneDrive\\Desktop\\Selenium demo\\node_modules\\selenium-webdriver\\lib\\webdriver.js:929:22\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+                    "diff": null
+                  },
+                  "uuid": "23919dc0-123b-4987-b402-69de5fb474c0",
+                  "parentUUID": "9dcdec88-e4b8-4b25-bb08-6c3ed098d9ba",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "23919dc0-123b-4987-b402-69de5fb474c0"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 10017,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 0
+            },
+            {
+              "uuid": "976cd54e-27a9-4754-89d0-0f31bef3829b",
+              "title": "Experience form test",
+              "fullFile": "C:\\Users\\kshit\\OneDrive\\Desktop\\Selenium demo\\test\\signup_automation_script.test.js",
+              "file": "\\test\\signup_automation_script.test.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"Experience form test\"",
+                  "fullTitle": "complete test Experience form test \"before all\" hook in \"Experience form test\"",
+                  "timedOut": false,
+                  "duration": 7,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "this.timeout(20000);\n        driver = await getDriver();\n        signupActions.setDriver(driver);\n        data = signupData.experienceDetails;\n        console.log(data);",
+                  "err": {},
+                  "uuid": "17d89bf5-4d9a-4623-b85b-fdfd2d27c7c2",
+                  "parentUUID": "976cd54e-27a9-4754-89d0-0f31bef3829b",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should navigate to Business page with valid information",
+                  "fullTitle": "complete test Experience form test should navigate to Business page with valid information",
+                  "timedOut": true,
+                  "duration": 20010,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "this.timeout(20000);\n        //arrange and act \n         const fields = await signupActions.fillExperienceDetails(\n            data.yearsOfExperience,\n            data.studentsRecruitedAnnually,\n            data.focusArea,\n            data.successMetrics,\n            data.services\n        );\n        //assertingg..\n        // dropdown text sanga selected option match hunu paryoo\n        const selectedDropdown = await driver.findElement(By.css('button[role=\"combobox\"] > span'));\n        const selectedText = await selectedDropdown.getText();\n        expect(selectedText).to.equal(fields.selectedText);\n        expect(await fields.focusAreaInput.getAttribute(\"value\"))\n            .to.equal(data.focusArea);\n        expect(await fields.successMetricsInput.getAttribute(\"value\"))\n            .to.equal(data.successMetrics);\n        \n        // retun vako services array sanga action match hunuparyoo \n        expect(fields.selectedServices).to.deep.equal(data.services);\n        \n        const nextButtonExp = await driver.findElement(By.css('button[type=\"submit\"].primary-btn'));\n        await driver.wait(until.elementIsVisible(nextButtonExp), 5000);\n        await driver.wait(until.elementIsEnabled(nextButtonExp), 5000);\n        await nextButtonExp.click();\n        //asserting after click act\n        //next ma click pachii navigate hunu paryop\n        const registrationInput = await driver.wait(until.elementLocated(By.name('business_registration_number')), 5000);\n        expect(await registrationInput.isDisplayed()).to.be.true;",
+                  "err": {
+                    "message": "Error: Timeout of 20000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (C:\\Users\\kshit\\OneDrive\\Desktop\\Selenium demo\\test\\signup_automation_script.test.js)",
+                    "estack": "Error: Timeout of 20000ms exceeded. For async tests and hooks, ensure \"done()\" is called; if returning a Promise, ensure it resolves. (C:\\Users\\kshit\\OneDrive\\Desktop\\Selenium demo\\test\\signup_automation_script.test.js)\n    at listOnTimeout (node:internal/timers:594:17)\n    at process.processTimers (node:internal/timers:529:7)",
+                    "diff": null
+                  },
+                  "uuid": "28fe9497-b81b-4557-a0cd-1f9476928bbd",
+                  "parentUUID": "976cd54e-27a9-4754-89d0-0f31bef3829b",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "28fe9497-b81b-4557-a0cd-1f9476928bbd"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 20010,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 0
+            },
+            {
+              "uuid": "39ec75ca-0ab1-4b0a-b891-0af348d060ca",
+              "title": "Business form test",
+              "fullFile": "C:\\Users\\kshit\\OneDrive\\Desktop\\Selenium demo\\test\\signup_automation_script.test.js",
+              "file": "\\test\\signup_automation_script.test.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"Business form test\"",
+                  "fullTitle": "complete test Business form test \"before all\" hook in \"Business form test\"",
+                  "timedOut": false,
+                  "duration": 1,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "driver = await getDriver();\nsignupActions.setDriver(driver);\ndata = signupData.businessDetails;",
+                  "err": {},
+                  "uuid": "a1d118a8-c26c-43db-af03-85b8ca75849b",
+                  "parentUUID": "39ec75ca-0ab1-4b0a-b891-0af348d060ca",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "filling business form",
+                  "fullTitle": "complete test Business form test filling business form",
+                  "timedOut": false,
+                  "duration": 10006,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "this.timeout(20000);\n        //arrange and act\n        const fields = await signupActions.fillBusinessDetails(\n            data.businessRegNumber,\n            data.certification,\n        )\n      \n        //Upload documents\n        //pachhi dynamic banaunu parchha\n        const fileInputs = await driver.findElements(By.css('input[type=\"file\"]'));\n        const filePath1 = path.resolve(__dirname, '../../docs/CompanyRegistration.pdf');\n        const filePath2 = path.resolve(__dirname, '../../docs/EducationCertificate.pdf');\n        await fileInputs[0].sendKeys(filePath1);\n        await fileInputs[1].sendKeys(filePath2);\n        //Asserting uploaded files\n        expect(await fileInputs[0].getAttribute('value')).to.include('CompanyRegistration.pdf');\n        expect(await fileInputs[1].getAttribute('value')).to.include('EducationCertificate.pdf');\n        //add extra file container check garna ko lagi uploading third PDF\n        const addDocsBtn = await driver.wait(\n            until.elementLocated(By.xpath('//div[contains(text(),\"Add Documents\")]')),\n            10000\n        );\n        await addDocsBtn.click();\n        // Wait until a new file input is added\n        await driver.wait(async () => {\n            const inputs = await driver.findElements(By.css('input[type=\"file\"]'));\n            return inputs.length >= 3;\n        }, 10000);\n        const allFileInputs = await driver.findElements(By.css('input[type=\"file\"]'));\n        const thirdInput = allFileInputs[allFileInputs.length - 1];\n        await thirdInput.sendKeys(path.resolve(__dirname, '../../docs/ExtraDoc.pdf'));\n        expect(await thirdInput.getAttribute('value')).to.include('ExtraDoc.pdf');\n        // Submitting \n        const submitBtn = await driver.findElement(By.css('button[type=\"submit\"].primary-btn'));\n        await submitBtn.click();\n        //assertingg\n        // Waiting for the \"My Profile\" heading \n        const myProfileHeading = await driver.wait(\n            until.elementLocated(By.xpath('//h2[normalize-space()=\"My Profile\"]')),\n            30000\n        );\n        expect(await myProfileHeading.isDisplayed()).to.be.true;",
+                  "err": {
+                    "message": "TimeoutError: Waiting for element to be located By(css selector, *[name=\"business_registration_number\"])\nWait timed out after 10006ms",
+                    "estack": "TimeoutError: Waiting for element to be located By(css selector, *[name=\"business_registration_number\"])\nWait timed out after 10006ms\n    at C:\\Users\\kshit\\OneDrive\\Desktop\\Selenium demo\\node_modules\\selenium-webdriver\\lib\\webdriver.js:929:22\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+                    "diff": null
+                  },
+                  "uuid": "3d47c6e6-e7c0-4a6f-a31d-95138f656c84",
+                  "parentUUID": "39ec75ca-0ab1-4b0a-b891-0af348d060ca",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "3d47c6e6-e7c0-4a6f-a31d-95138f656c84"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 10006,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 0
+            },
+            {
+              "uuid": "1fa6e7e0-9182-46f7-aabb-aa3716969e27",
+              "title": "profile appearance test and locate logout button",
+              "fullFile": "C:\\Users\\kshit\\OneDrive\\Desktop\\Selenium demo\\test\\signup_automation_script.test.js",
+              "file": "\\test\\signup_automation_script.test.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"profile appearance test and locate logout button\"",
+                  "fullTitle": "complete test profile appearance test and locate logout button \"before all\" hook in \"profile appearance test and locate logout button\"",
+                  "timedOut": false,
+                  "duration": 1,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "driver = await getDriver()",
+                  "err": {},
+                  "uuid": "a6d46c4b-8ef8-48b5-be49-c7c9295c89da",
+                  "parentUUID": "1fa6e7e0-9182-46f7-aabb-aa3716969e27",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "waiting for the profile to appear in screen",
+                  "fullTitle": "complete test profile appearance test and locate logout button waiting for the profile to appear in screen",
+                  "timedOut": false,
+                  "duration": 30049,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "const myProfileHeading = await driver.wait(until.elementLocated(signupPage.myProfileHeading), 30000);\nawait driver.wait(until.elementIsVisible(myProfileHeading), 30000);\nexpect(await myProfileHeading.isDisplayed()).to.be.true;",
+                  "err": {
+                    "message": "TimeoutError: Waiting for element to be located By(xpath, //h2[normalize-space()=\"My Profile\"])\nWait timed out after 30048ms",
+                    "estack": "TimeoutError: Waiting for element to be located By(xpath, //h2[normalize-space()=\"My Profile\"])\nWait timed out after 30048ms\n    at C:\\Users\\kshit\\OneDrive\\Desktop\\Selenium demo\\node_modules\\selenium-webdriver\\lib\\webdriver.js:929:22\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+                    "diff": null
+                  },
+                  "uuid": "8ed6f13c-57b2-432f-a844-3fb9603525d6",
+                  "parentUUID": "1fa6e7e0-9182-46f7-aabb-aa3716969e27",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "clicking logout button",
+                  "fullTitle": "complete test profile appearance test and locate logout button clicking logout button",
+                  "timedOut": false,
+                  "duration": 10152,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "const logoutBtn = await driver.wait(until.elementLocated(signupPage.logoutButton), 10000);\nawait driver.wait(until.elementIsVisible(logoutBtn), 5000);\nawait driver.wait(until.elementIsEnabled(logoutBtn), 5000);\nexpect(await logoutBtn.isDisplayed()).to.be.true;\nexpect(await logoutBtn.isEnabled()).to.be.true;\nawait logoutBtn.click();\nconst modalLogoutBtn = await driver.wait(\n    until.elementLocated(signupPage.confirmLogoutButton),\n    5000\n);\nawait driver.wait(until.elementIsVisible(modalLogoutBtn), 5000);\nexpect(await modalLogoutBtn.isDisplayed()).to.be.true;",
+                  "err": {
+                    "message": "TimeoutError: Waiting for element to be located By(xpath, //div[normalize-space()=\"Logout\"])\nWait timed out after 10151ms",
+                    "estack": "TimeoutError: Waiting for element to be located By(xpath, //div[normalize-space()=\"Logout\"])\nWait timed out after 10151ms\n    at C:\\Users\\kshit\\OneDrive\\Desktop\\Selenium demo\\node_modules\\selenium-webdriver\\lib\\webdriver.js:929:22\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+                    "diff": null
+                  },
+                  "uuid": "1d02e119-4671-4477-892d-200d35a9f2c3",
+                  "parentUUID": "1fa6e7e0-9182-46f7-aabb-aa3716969e27",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "8ed6f13c-57b2-432f-a844-3fb9603525d6",
+                "1d02e119-4671-4477-892d-200d35a9f2c3"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 40201,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 0
+            },
+            {
+              "uuid": "4eb78d95-c739-4b56-ac0c-bc26496c9bc5",
+              "title": "Logout modal test",
+              "fullFile": "C:\\Users\\kshit\\OneDrive\\Desktop\\Selenium demo\\test\\signup_automation_script.test.js",
+              "file": "\\test\\signup_automation_script.test.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"Logout modal test\"",
+                  "fullTitle": "complete test Logout modal test \"before all\" hook in \"Logout modal test\"",
+                  "timedOut": false,
+                  "duration": 0,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "driver = await getDriver()",
+                  "err": {},
+                  "uuid": "51348596-a679-44f2-ab96-ee8f934d0239",
+                  "parentUUID": "4eb78d95-c739-4b56-ac0c-bc26496c9bc5",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [
+                {
+                  "title": "\"after all\" hook in \"Logout modal test\"",
+                  "fullTitle": "complete test Logout modal test \"after all\" hook in \"Logout modal test\"",
+                  "timedOut": false,
+                  "duration": 413,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "await quitDriver(); // quit at the end of the flow",
+                  "err": {},
+                  "uuid": "5d762171-8a06-4fe8-9b06-551682416450",
+                  "parentUUID": "4eb78d95-c739-4b56-ac0c-bc26496c9bc5",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "tests": [
+                {
+                  "title": "should click the logout button and navigate to login page",
+                  "fullTitle": "complete test Logout modal test should click the logout button and navigate to login page",
+                  "timedOut": false,
+                  "duration": 157,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "const openDialog = await driver.wait(until.elementLocated(By.css('div[role=\"dialog\"][data-state=\"open\"]')), 10000);\nawait driver.wait(until.elementIsVisible(openDialog), 5000);\nexpect(await openDialog.isDisplayed()).to.be.true;\nconst confirmLogout = await openDialog.findElement(By.xpath('.//button[normalize-space()=\"Logout\"]'));\nawait driver.wait(until.elementIsVisible(confirmLogout), 5000);\nawait driver.wait(until.elementIsEnabled(confirmLogout), 5000);\nexpect(await confirmLogout.isDisplayed()).to.be.true;\nexpect(await confirmLogout.isEnabled()).to.be.true;\nawait confirmLogout.click();\nconst loginHeading = await driver.wait(until.elementLocated(By.xpath('//h1[normalize-space()=\"Log in to Authorized Partner\"]')), 10000);\nexpect(await loginHeading.isDisplayed()).to.be.true;",
+                  "err": {
+                    "message": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\".//button[normalize-space()=\"Logout\"]\"}\n  (Session info: chrome=143.0.7499.170)",
+                    "estack": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\".//button[normalize-space()=\"Logout\"]\"}\n  (Session info: chrome=143.0.7499.170)\n    at Object.throwDecodedError (node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (node_modules\\selenium-webdriver\\lib\\http.js:524:13)\n    at Executor.execute (node_modules\\selenium-webdriver\\lib\\http.js:456:28)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async Driver.execute (node_modules\\selenium-webdriver\\lib\\webdriver.js:745:17)\n    at async Context.<anonymous> (test\\signup\\logout.test.js:18:31)",
+                    "diff": null
+                  },
+                  "uuid": "2ce51ff5-c8af-4d74-8a57-95974afb7b82",
+                  "parentUUID": "4eb78d95-c739-4b56-ac0c-bc26496c9bc5",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [],
+              "failures": [
+                "2ce51ff5-c8af-4d74-8a57-95974afb7b82"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 157,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 0
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 0
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 0
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.7.5"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.3.2"
+    }
+  }
+}

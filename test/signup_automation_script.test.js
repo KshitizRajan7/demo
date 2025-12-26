@@ -1,0 +1,11 @@
+describe('complete test', function () {
+    require('./signup/dashboard.test')
+    require('./signup/agreementCheck.test')
+    require('./signup/basicInfo.test')
+    require('./signup/otp.test')
+    require('./signup/agency.test')
+    require('./signup/experience.test')
+    require('./signup/business.test')
+    require('./signup/profile.test')
+    require('./signup/logout.test')
+})
